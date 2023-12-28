@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
+using System.Collections.Generic;
+
 
 namespace Proje.Models
 {
