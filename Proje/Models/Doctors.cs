@@ -10,20 +10,21 @@ namespace Proje.Models
         [Display(Name = "Ad")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Soyad alanı boş geçilemez!")]
-        [Display(Name = "Soyad")]
-        public string Surname { get; set; }
+        [Required(ErrorMessage = "Doktorun çalıştığı ana bilim dalı alanı boş geçilemez!")]
+        [Display(Name = "Çalıştığı Ana Bilim Dalı")]
+        public string AnaBilimDali { get; set; }
 
-        [Required(ErrorMessage = "Telefon numarası alanı boş geçilemez!")]
-        [Display(Name = "Telefon Numarası")]
-        public string TelNo { get; set; }
+        [Required(ErrorMessage = "Doktorun çalıştığı poliklinik alanı boş geçilemez!")]
+        [Display(Name = "Çalıştığı Poliklinik")]
+        public string Poliklinik { get; set; }
 
-        [Required(ErrorMessage = "TC kimlik numarası alanı boş geçilemez!")]
-        [Display(Name = "TC kimlik numarası")]
-        public string TcNo { get; set; }
+        [Required(ErrorMessage = "Doktorun çalıştığı günler boş geçilemez!")]
+        [Display(Name = "Çalıştığı Günler")]
+        public string[] CalistigiGunler { get; set; }
 
-        [Required(ErrorMessage = "Email alanı boş geçilemez!")]
-        [Display(Name = "Email")]
-        public string Email { get; set; }
+        [Required(ErrorMessage = "Doktorun çalıştığı günler boş geçilemez!")]
+        [Display(Name = "Çalıştığı Günler")]
+        public List<TimeSpan> GunlukCalismaSaatleri { get; set; }
+
     }
 }
