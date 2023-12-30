@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Proje.Models
 {
@@ -10,21 +12,18 @@ namespace Proje.Models
         [Display(Name = "Ad")]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Doktorun çalıştığı ana bilim dalı alanı boş geçilemez!")]
-        [Display(Name = "Çalıştığı Ana Bilim Dalı")]
-        public string AnaBilimDali { get; set; }
+        [ForeignKey("AnaBilimDali")]
+        public int AnaBilimDaliId { get; set; }
+        public AnaBilimDali AnaBilimDali { get; set; }
 
-        [Required(ErrorMessage = "Doktorun çalıştığı poliklinik alanı boş geçilemez!")]
-        [Display(Name = "Çalıştığı Poliklinik")]
-        public string Poliklinik { get; set; }
+        [ForeignKey("Poliklinikler")]
+        public int PolikliniklerId { get; set; }
+        public Poliklinikler Poliklinikler { get; set; }    
 
-        [Required(ErrorMessage = "Doktorun çalıştığı günler boş geçilemez!")]
-        [Display(Name = "Çalıştığı Günler")]
-        public string[] CalistigiGunler { get; set; }
+        public List<CalismaZamani> CalismaZamani { get; set; }  
+        public List<Randevu> Randevus { get; set; }
 
-        [Required(ErrorMessage = "Doktorun çalıştığı günler boş geçilemez!")]
-        [Display(Name = "Çalıştığı Günler")]
-        public List<TimeSpan> GunlukCalismaSaatleri { get; set; }
+
 
     }
 }

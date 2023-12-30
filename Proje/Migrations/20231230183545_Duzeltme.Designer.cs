@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Proje.Context;
 
@@ -11,9 +12,10 @@ using Proje.Context;
 namespace Proje.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231230183545_Duzeltme")]
+    partial class Duzeltme
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,7 +38,7 @@ namespace Proje.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AnaBilimDali", (string)null);
+                    b.ToTable("AnaBilimDali");
                 });
 
             modelBuilder.Entity("Proje.Models.CalismaZamani", b =>
@@ -63,7 +65,7 @@ namespace Proje.Migrations
 
                     b.HasIndex("DoktorId");
 
-                    b.ToTable("CalismaZamani", (string)null);
+                    b.ToTable("CalismaZamani");
                 });
 
             modelBuilder.Entity("Proje.Models.Doctors", b =>
@@ -90,7 +92,7 @@ namespace Proje.Migrations
 
                     b.HasIndex("PoliklinikId");
 
-                    b.ToTable("Doctors", (string)null);
+                    b.ToTable("Doctors");
                 });
 
             modelBuilder.Entity("Proje.Models.Poliklinikler", b =>
@@ -112,7 +114,7 @@ namespace Proje.Migrations
 
                     b.HasIndex("AnaBilimDaliId");
 
-                    b.ToTable("Poliklinikler", (string)null);
+                    b.ToTable("Poliklinikler");
                 });
 
             modelBuilder.Entity("Proje.Models.Randevu", b =>
@@ -149,7 +151,7 @@ namespace Proje.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Randevu", (string)null);
+                    b.ToTable("Randevu");
                 });
 
             modelBuilder.Entity("Proje.Models.User", b =>
@@ -182,7 +184,7 @@ namespace Proje.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Proje.Models.CalismaZamani", b =>
