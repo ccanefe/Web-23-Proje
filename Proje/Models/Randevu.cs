@@ -12,6 +12,8 @@ namespace Proje.Models
         [Key]
         public int Id { get; set; }
 
+        public DateTime Tarih { get; set; }
+
         [ForeignKey("UserId")]
         [ValidateNever]
         public int? UserId { get; set; }

@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Proje.Models;
 
 namespace Proje.Context
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext<User>
     {
-       
-        public AppDbContext()
-        { }
+      
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }

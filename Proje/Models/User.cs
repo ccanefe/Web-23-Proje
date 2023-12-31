@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
 
 namespace Proje.Models
 {
-    public class User
+    public class User:IdentityUser
     {   
         public int Id { get; set; }
 
