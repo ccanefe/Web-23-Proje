@@ -29,7 +29,6 @@ namespace Proje.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-        public List<Randevu> Randevus { get; set; }
 
     }
 }

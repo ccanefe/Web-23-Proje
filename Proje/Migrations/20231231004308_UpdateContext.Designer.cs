@@ -11,8 +11,8 @@ using Proje.Context;
 namespace Proje.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231230141717_UpdateDoctors")]
-    partial class UpdateDoctors
+    [Migration("20231231004308_UpdateContext")]
+    partial class UpdateContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,6 +54,29 @@ namespace Proje.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("Proje.Models.Uzmanlik", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("UzmanlikAdi")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("UzmanlikAdiEng")
+                        .IsRequired()
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Uzmanlik");
                 });
 #pragma warning restore 612, 618
         }

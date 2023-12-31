@@ -13,23 +13,10 @@ namespace Proje.Context
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Doctors> Doctors { get; set; }
-        public DbSet<AnaBilimDali> AnaBilimDali { get; set; }
-        public DbSet<Poliklinikler> Poliklinikler { get; set; }
-        public DbSet<CalismaZamani> CalismaZamani { get; set; }
+        public DbSet<Uzmanlik> Uzmanlik { get; set; }
+        public DbSet<Doktor> Doktor { get; set; }
+        public DbSet<Mesai> Mesai { get; set; }
         public DbSet<Randevu> Randevu { get; set; }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            
-            modelBuilder.Entity<Doctors>()
-                .HasOne(d => d.Poliklinikler)
-                .WithMany()
-                .HasForeignKey(d => d.PolikliniklerId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            base.OnModelCreating(modelBuilder);
-        }
-
+        public DbSet<MesaiGunu> MesaiGunu { get; set; }
     }
 }

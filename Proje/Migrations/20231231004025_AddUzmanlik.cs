@@ -4,7 +4,7 @@
 
 namespace Proje.Migrations
 {
-    public partial class UpdateDoctors : Migration
+    public partial class AddUzmanlik : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

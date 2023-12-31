@@ -11,8 +11,8 @@ using Proje.Context;
 namespace Proje.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231227180306_User")]
-    partial class User
+    [Migration("20231231002416_AddUser")]
+    partial class AddUser
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
