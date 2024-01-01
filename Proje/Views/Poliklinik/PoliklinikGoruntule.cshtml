@@ -7,7 +7,6 @@
 <html class="no-js" lang="zxx">
 <head>
     <style>
-        /* Add CSS for table container with padding */
         .table-container {
             width: calc(100% - 5cm); /* Set the width of the container */
             margin: 0 auto; /* Center the container horizontally */
@@ -42,9 +41,43 @@
         tr:hover {
             background-color: #f2f2f2;
         }
+
+
+        .edit-box,
+        .delete-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .edit-box {
+            background-color: orange;
+        }
+
+        .delete-box {
+            background-color: red;
+        }
+
+            .edit-box:hover,
+            .delete-box:hover {
+                cursor: pointer;
+            }
+
+            .edit-box label,
+            .delete-box label {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+            }
     </style>
 </head>
-
 <body>
     <div class="table-container">
         @model List<Uzmanlik>
@@ -56,7 +89,23 @@
                 @foreach (var uzmanlik in Model)
                 {
                     <tr>
-                        <td style="font-size: 18x;">@uzmanlik.UzmanlikAdi</td>
+                        <td style="font-size: 18px;">@uzmanlik.UzmanlikAdi</td>
+                        <td style="font-size: 18px;">
+                            <div class="edit-box">
+                                <label>
+                                    <input type="checkbox" name="uzmanlikEditIds" value="@uzmanlik.Id" style="display: none;" />
+                                    Düzenle
+                                </label>
+                            </div>
+                        </td>
+                        <td style="font-size: 18px;">
+                            <div class="delete-box">
+                                <label>
+                                    <input type="checkbox" name="uzmanlikDeleteIds" value="@uzmanlik.Id" style="display: none;" />
+                                    Sil
+                                </label>
+                            </div>
+                        </td>
                     </tr>
                 }
             </tbody>
@@ -72,5 +121,4 @@
     <br>
     <br>
 </body>
-
 </html>

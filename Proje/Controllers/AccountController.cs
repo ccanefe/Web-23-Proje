@@ -10,7 +10,12 @@ namespace Proje.Controllers
 
     public class AccountController : Controller
     {
-       
+        private readonly DbContext _context;
+
+        public AccountController()
+        {
+            _context = new AppDbContext(); 
+        }
 
         public IActionResult Login()
         {
@@ -23,37 +28,12 @@ namespace Proje.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Login(User user)
+        public IActionResult Login(User u)
         {
-            if (ModelState.IsValid)
-            {
-                string connectionString = "Server=CAN\\SQLEXPRESS;Database=RandevuDb;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True;"; // Veritabanı bağlantı dizini
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    string selectQuery = $"SELECT Id FROM Users WHERE Email = @Email AND Password = @Password";
-
-                    using (SqlCommand command = new SqlCommand(selectQuery, connection))
-                    {
-                        command.Parameters.AddWithValue("@Email", user.Email);
-                        command.Parameters.AddWithValue("@Password", user.Password);
-
-                        object result = command.ExecuteScalar();
-
-                        if (result != null) // Kullanıcı bulunduysa
-                        {
-                            // Başarılı giriş, Anasayfa'ya yönlendir
-                            return RedirectToAction("Index", "Home");
-                        }
-                    }
-                }
-
-                // Kullanıcı bulunamadı veya giriş başarısız oldu
-                ModelState.AddModelError(string.Empty, "Geçersiz kullanıcı adı veya şifre.");
-            }
-
-            return View(user);
+            var user = _context.Set<User>().FirstOrDefault(x => x.Email == u.Email && x.Password == u.Password);
+            if (user == null) return View("Error");
+            else return RedirectToAction("AnasayfaGoruntule", "Anasayfa");
+            return View();
         }
 
         [HttpPost]
@@ -82,14 +62,7 @@ namespace Proje.Controllers
 
                         if (rowsAffected > 0)
                         {
-                            // Başarılı bir şekilde kaydedildi, Anasayfa'ya yönlendir
                             return RedirectToAction("Index", "Anasayfa");
-                        }
-                        else
-                        {
-                            // Kayıt işlemi başarısız oldu
-                            // Uygun hata işleme mekanizması burada kullanılabilir
-                            // Örneğin, bir hata sayfasına yönlendirilebilir veya hata mesajı gösterilebilir
                         }
                     }
                 }

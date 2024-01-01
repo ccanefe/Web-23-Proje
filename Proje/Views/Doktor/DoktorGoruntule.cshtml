@@ -6,8 +6,8 @@
 <!doctype html>
 <html class="no-js" lang="zxx">
 <head>
+    <!-- ... (CSS ve diğer başlık bilgileri buraya gelecek) -->
     <style>
-        /* Add CSS for table container with padding */
         .table-container {
             width: calc(100% - 5cm); /* Set the width of the container */
             margin: 0 auto; /* Center the container horizontally */
@@ -21,13 +21,14 @@
             width: 100%;
             border: 1px solid #ddd;
             font-family: Arial, sans-serif;
+            font-weight: bold;
         }
 
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: center;
-            font-size: 16px; /* Increase font size (from the default) */
+            font-size: 18px; /* Increase font size (from the default) */
         }
 
         th {
@@ -41,6 +42,40 @@
         tr:hover {
             background-color: #f2f2f2;
         }
+
+        .edit-box,
+        .delete-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%; /* Kutunun genişliği */
+            height: 100%; /* Kutunun yüksekliği */
+            color: white; /* Yazı rengi */
+            font-size: 16px; /* Yazı boyutu */
+            font-weight: bold; /* Yazı kalınlığı */
+        }
+
+        .edit-box {
+            background-color: orange; /* Düzenle kutusu rengi */
+        }
+
+        .delete-box {
+            background-color: red; /* Sil kutusu rengi */
+        }
+
+            .edit-box:hover,
+            .delete-box:hover {
+                cursor: pointer; /* Farenin üstüne gelindiğinde imleci değiştir */
+            }
+
+            .edit-box label,
+            .delete-box label {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%; /* Etiketin genişliği */
+                height: 100%; /* Etiketin yüksekliği */
+            }
     </style>
 </head>
 <body>
@@ -53,6 +88,8 @@
                 <tr>
                     <th>Doktor Adı</th>
                     <th>Uzmanlık Alanı</th>
+                    <th></th>
+                    <th></th> <!-- Yeni sütun başlığı -->
                 </tr>
             </thead>
             <tbody>
@@ -61,11 +98,32 @@
                     <tr>
                         <td style="font-size: 16px;">@doktor.DoktorAdi</td>
                         <td style="font-size: 16px;">@(doktor.Uzmanlik != null ? doktor.Uzmanlik.UzmanlikAdi : "Belirtilmemiş")</td>
+                        <td style="font-size: 16px;">
+                            <div class="edit-box">
+                                <label>
+                                    <input type="checkbox" name="doktorEditIds" value="@doktor.Id" style="display: none;" />
+                                    Düzenle
+                                </label>
+                            </div>
+                        </td>
+                        <td style="font-size: 16px;">
+                            <div class="delete-box">
+                                <label>
+                                    <input type="checkbox" name="doktorDeleteIds" value="@doktor.Id" style="display: none;" />
+                                    Sil
+                                </label>
+                            </div>
+                        </td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </body>
 </html>

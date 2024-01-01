@@ -1,0 +1,44 @@
+﻿@model Proje.Models.Doktor
+@{
+    ViewData["Title"] = "DoktorEkle";
+    Layout = "~/Views/Shared/_NavbarFooter.cshtml";
+}
+@using (Html.BeginForm("DoktorEkle", "Doktor", FormMethod.Post, new { enctype = "multipart/Form-data" }))
+{
+    <style>
+        .genis-input {
+            width: 100%; 
+            height: 50px;
+            font-size: 16px; 
+        }
+        .label{
+            font-size: 16px;
+        }
+        .box {
+            borderWidth: 2px;
+            width: 100%;
+        }
+    </style>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group box">
+                    <label class="label">Doktorun Adı: </label>
+                    <br />
+                    <input type="text" name="DoktorAdi" class="form-control genis-input" />
+                </div>
+                <br /><br />
+                <div class="form-group box">
+                    <label class="label">Branşı: </label>
+                    <br />
+                    @Html.DropDownListFor(x => x.Id, (List<SelectListItem>)ViewBag.ktgr, new { @class = "form-control genis-input" })
+                </div>
+                <br /><br /><br /><br /><br />
+                <button class="btn btn-primary" type="submit">Ekle</button>
+                <a href="/Doktor/DoktorGoruntule">Doktorlarımız</a>
+            </div>
+        </div>
+    </div>
+
+}

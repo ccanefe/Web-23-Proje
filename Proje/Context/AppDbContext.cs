@@ -22,6 +22,14 @@ namespace Proje.Context
         {
         }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=CAN\\SQLEXPRESS;Database=RandevuDb;Trusted_Connection=True;MultipleActiveResultSets=True;TrustServerCertificate=True"); // Veritabanı bağlantı dizesini buraya ekleyin
+            }
+        }
+
         public DbSet<User> Users { get; set; }
         public DbSet<Uzmanlik> Uzmanliks { get; set; }
 
