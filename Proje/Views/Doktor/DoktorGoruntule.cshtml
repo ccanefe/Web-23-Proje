@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_NavbarFooter.cshtml";
+}
+
+
+<!doctype html>
+<html class="no-js" lang="zxx">
+<head>
+    
+</head>
+<body>
+   
+    @model List<Proje.Models.Doktor>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Doktor Adı</th>
+                <th>Uzmanlık Alanı</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var doktor in Model)
+            {
+                <tr>
+                    <td>@doktor.DoktorAdi</td>
+                    <td>@(doktor.Uzmanlik != null ? doktor.Uzmanlik.UzmanlikAdi : "Belirtilmemiş")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
