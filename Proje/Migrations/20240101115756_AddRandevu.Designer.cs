@@ -12,8 +12,8 @@ using Proje.Context;
 namespace Proje.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231231113223_UpdateUser")]
-    partial class UpdateUser
+    [Migration("20240101115756_AddRandevu")]
+    partial class AddRandevu
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,7 +44,7 @@ namespace Proje.Migrations
 
                     b.HasIndex("UzmanlikId");
 
-                    b.ToTable("Doktor");
+                    b.ToTable("Doktors");
                 });
 
             modelBuilder.Entity("Proje.Models.Mesai", b =>
@@ -117,7 +117,7 @@ namespace Proje.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Randevu");
+                    b.ToTable("Randevus");
                 });
 
             modelBuilder.Entity("Proje.Models.User", b =>
@@ -128,45 +128,16 @@ namespace Proje.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("NormalizedEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
+                    b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
@@ -179,12 +150,6 @@ namespace Proje.Migrations
 
                     b.Property<string>("TelNo")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -212,7 +177,7 @@ namespace Proje.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Uzmanlik");
+                    b.ToTable("Uzmanliks");
                 });
 
             modelBuilder.Entity("Proje.Models.Doktor", b =>

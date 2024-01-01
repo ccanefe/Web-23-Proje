@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Proje.Context;
 
@@ -31,6 +32,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Doktor}/{action=DoktorGoruntule}/{id?}");
+    pattern: "{controller=Anasayfa}/{action=AnasayfaGoruntule}/{id?}");
 
 app.Run();

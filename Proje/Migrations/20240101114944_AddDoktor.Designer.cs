@@ -12,7 +12,7 @@ using Proje.Context;
 namespace Proje.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231231010936_AddDoktor")]
+    [Migration("20240101114944_AddDoktor")]
     partial class AddDoktor
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,7 +44,7 @@ namespace Proje.Migrations
 
                     b.HasIndex("UzmanlikId");
 
-                    b.ToTable("Doktor");
+                    b.ToTable("Doktors");
                 });
 
             modelBuilder.Entity("Proje.Models.User", b =>
@@ -60,6 +60,10 @@ namespace Proje.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -100,7 +104,7 @@ namespace Proje.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Uzmanlik");
+                    b.ToTable("Uzmanliks");
                 });
 
             modelBuilder.Entity("Proje.Models.Doktor", b =>

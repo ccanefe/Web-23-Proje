@@ -18,7 +18,8 @@ namespace Proje.Migrations
                     Surname = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TelNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TcNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

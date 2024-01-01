@@ -9,7 +9,7 @@ namespace Proje.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Doktor",
+                name: "Doktors",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -19,25 +19,25 @@ namespace Proje.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Doktor", x => x.Id);
+                    table.PrimaryKey("PK_Doktors", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Doktor_Uzmanlik_UzmanlikId",
+                        name: "FK_Doktors_Uzmanliks_UzmanlikId",
                         column: x => x.UzmanlikId,
-                        principalTable: "Uzmanlik",
+                        principalTable: "Uzmanliks",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Doktor_UzmanlikId",
-                table: "Doktor",
+                name: "IX_Doktors_UzmanlikId",
+                table: "Doktors",
                 column: "UzmanlikId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Doktor");
+                name: "Doktors");
         }
     }
 }

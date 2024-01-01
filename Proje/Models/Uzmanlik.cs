@@ -7,7 +7,7 @@ namespace Proje.Models
         [Key]
         public int Id { get; set; }
 
-        [Required(ErrorMessage ="Uzmanlık adı alanı boş bırakılamaz.")]
+        [Required(ErrorMessage = "Uzmanlık adı alanı boş bırakılamaz.")]
         [MaxLength(40)]
         [DisplayName("Uzmanlık Alanı: ")]
         public string UzmanlikAdi { get; set; }

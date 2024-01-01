@@ -4,7 +4,7 @@ namespace Proje.Controllers
 {
     public class AnasayfaController : Controller
     {
-        public IActionResult Index()
+        public IActionResult AnasayfaGoruntule()
         {
             return View();
         }

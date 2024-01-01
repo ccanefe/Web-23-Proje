@@ -1,6 +1,8 @@
-﻿@{
-    Layout = null;
+﻿
+@{
+    ViewBag.Title= "Login";
 }
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,21 +68,18 @@
                                         <p class="text-center small">Giriş yapmak için kullanıcı adı ve şifre girin.</p>
                                     </div>
 
-                                    <form class="row g-3 needs-validation" method="post" novalidate>
+                                    <form asp-action="Login" asp-controller="Account" method="post" class="row g-3 needs-validation" novalidate>
 
                                         <div class="col-12">
-                                            <label for="yourUsername" class="form-label">Kullanıcı adı</label>
-                                            <div class="input-group has-validation">
-                                                <span class="input-group-text" id="inputGroupPrepend"></span>
-                                                <input type="email" name="mail" class="form-control" id="yourMail" required>
-                                                <div class="invalid-feedback">Lütfen kullanıcı adını gir.</div>
-                                            </div>
+                                            <label for="yourEmail" class="form-label">Mail Adresiniz</label>
+                                            <input type="email" name="Email" class="form-control" id="yourEmail" required>
+                                            <div class="invalid-feedback">Lütfen geçerli bir mail adresi giriniz.</div>
                                         </div>
 
                                         <div class="col-12">
-                                            <label for="yourPassword" class="form-label">Şifre</label>
-                                            <input type="password" name="sifre" class="form-control" id="yourPassword" required>
-                                            <div class="invalid-feedback">Lütfen şifreni gir.</div>
+                                            <label for="yourPassword" class="form-label">Şifreniz</label>
+                                            <input type="password" name="Password" class="form-control" id="yourPassword" required>
+                                            <div class="invalid-feedback">Lütfen şifrenizi giriniz.</div>
                                         </div>
 
                                         <div class="col-12">

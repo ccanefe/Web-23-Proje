@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace Proje.Controllers
 {
-    public class DoktorController : Controller
+    public class PoliklinikController : Controller
     {
         private readonly AppDbContext _context;
 
-        public DoktorController(AppDbContext context)
+        public PoliklinikController(AppDbContext context)
         {
             _context = context;
         }
 
-        public async Task<IActionResult> DoktorGoruntule()
+        public async Task<IActionResult> PoliklinikGoruntule()
         {
-            var doktorlar = await _context.Doktors.Include(d => d.Uzmanlik).ToListAsync();
-            return View(doktorlar);
+            List<Uzmanlik> uzmanliklar = await _context.Uzmanliks.ToListAsync();
+            return View(uzmanliklar);
         }
     }
 }

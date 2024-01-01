@@ -4,12 +4,12 @@
 
 namespace Proje.Migrations
 {
-    public partial class UpdateContext : Migration
+    public partial class AddUzmanlik : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Uzmanlik",
+                name: "Uzmanliks",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -19,14 +19,14 @@ namespace Proje.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Uzmanlik", x => x.Id);
+                    table.PrimaryKey("PK_Uzmanliks", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Uzmanlik");
+                name: "Uzmanliks");
         }
     }
 }

@@ -1,13 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Identity;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
 
 namespace Proje.Models
 {
-    public class User:IdentityUser
-    {   
+    public class User
+    {
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Ad alanı boş geçilemez!")]
@@ -30,6 +29,8 @@ namespace Proje.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
-
+        [Required(ErrorMessage = "Şifre alanı boş geçilemez!")]
+        [Display(Name = "Şifre")]
+        public string Password { get; set; }
     }
 }

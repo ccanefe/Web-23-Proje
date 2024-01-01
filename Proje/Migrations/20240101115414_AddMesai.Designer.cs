@@ -12,7 +12,7 @@ using Proje.Context;
 namespace Proje.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231231012741_AddMesai")]
+    [Migration("20240101115414_AddMesai")]
     partial class AddMesai
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,7 +44,7 @@ namespace Proje.Migrations
 
                     b.HasIndex("UzmanlikId");
 
-                    b.ToTable("Doktor");
+                    b.ToTable("Doktors");
                 });
 
             modelBuilder.Entity("Proje.Models.Mesai", b =>
@@ -109,6 +109,10 @@ namespace Proje.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Surname")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -146,7 +150,7 @@ namespace Proje.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Uzmanlik");
+                    b.ToTable("Uzmanliks");
                 });
 
             modelBuilder.Entity("Proje.Models.Doktor", b =>
@@ -173,11 +177,9 @@ namespace Proje.Migrations
 
             modelBuilder.Entity("Proje.Models.MesaiGunu", b =>
                 {
-                    b.HasOne("Proje.Models.Mesai", "Mesai")
+                    b.HasOne("Proje.Models.Mesai", null)
                         .WithMany("CalistigiGunler")
                         .HasForeignKey("MesaiId");
-
-                    b.Navigation("Mesai");
                 });
 
             modelBuilder.Entity("Proje.Models.Mesai", b =>

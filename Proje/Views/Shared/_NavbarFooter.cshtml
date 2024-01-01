@@ -34,57 +34,58 @@
 </head>
 <body>
     <div>
-         <!-- ? Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="~/assets/img/logo/loder.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Preloader Start -->
-    <header>
-        <!--? Header Start -->
-        <div class="header-area">
-            <div class="main-header header-sticky">
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <!-- Logo -->
-                        <div class="col-xl-2 col-lg-2 col-md-1">
-                            <div class="logo">
-                                <a href="index.html"><img src="~/assets/img/logo/logo.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="col-xl-10 col-lg-10 col-md-10">
-                            <div class="menu-main d-flex align-items-center justify-content-end">
-                                <!-- Main-menu -->
-                                <div class="main-menu f-right d-none d-lg-block">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <li><a href="index.html">Anasayfa</a></li>
-                                            <li><a href="doctor.html">Doktorlar</a></li>
-                                            <li><a href="department.html">Poliklinikler</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                                <div class="header-right-btn f-right d-none d-lg-block ml-30">
-                                    <a href="#" class="btn header-btn">Randevu Al</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Mobile Menu -->
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
-                        </div>
+        <!-- ? Preloader Start -->
+        <div id="preloader-active">
+            <div class="preloader d-flex align-items-center justify-content-center">
+                <div class="preloader-inner position-relative">
+                    <div class="preloader-circle"></div>
+                    <div class="preloader-img pere-text">
+                        <img src="~/assets/img/logo/loder.png" alt="">
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Header End -->
-    </header>
+        <!-- Preloader Start -->
+        <header>
+            <!--? Header Start -->
+            <div class="header-area">
+                <div class="main-header header-sticky">
+                    <div class="container-fluid">
+                        <div class="row align-items-center">
+                            <!-- Logo -->
+                            <div class="col-xl-2 col-lg-2 col-md-1">
+                                <div class="logo">
+                                    <a class="nav-link" asp-controller="Anasayfa" asp-action="AnasayfaGoruntule"><img src="~/assets/img/logo/logo.png" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="col-xl-10 col-lg-10 col-md-10">
+                                <div class="menu-main d-flex align-items-center justify-content-end">
+                                    <!-- Main-menu -->
+                                    <div class="main-menu f-right d-none d-lg-block">
+                                        <nav>
+                                            <ul id="navigation">
+                                                <li><a class="nav-link" asp-controller="Anasayfa" asp-action="AnasayfaGoruntule">Anasayfa</a></li>
+                                                <li><a class="nav-link" asp-controller="Poliklinik" asp-action="PoliklinikGoruntule">Poliklinikler</a></li>
+                                                <li><a class="nav-link" asp-controller="Doktor" asp-action="DoktorGoruntule">Doktorlar</a></li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                    <div class="header-right-btn f-right d-none d-lg-block ml-30">
+                                        <a href="@Url.Action("Login", "Account")" class="btn header-btn">Çıkış Yap</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!-- Mobile Menu -->
+                            <div class="col-12">
+                                <div class="mobile_menu d-block d-lg-none"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header End -->
+        </header>
         @RenderBody()
     </div>
     <footer>
@@ -97,7 +98,7 @@
                             <div class="single-footer-caption mb-50">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="~/assets/img/logo/logo2_footer.png" alt=""></a>
+                                    <a class="nav-link" asp-controller="Anasayfa" asp-action="AnasayfaGoruntule"><img src="~/assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -127,7 +128,7 @@
                             <!-- Footer Social -->
                             <div class="footer-social f-right">
                                 <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
                                 <a href="#"><i class="fas fa-globe"></i></a>
                                 <a href="#"><i class="fab fa-instagram"></i></a>
                             </div>

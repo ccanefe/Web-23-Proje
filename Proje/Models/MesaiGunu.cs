@@ -22,6 +22,6 @@ namespace Proje.Models
         public DayOfWeek Gun { get; set; }
 
 
-       
+
     }
 }

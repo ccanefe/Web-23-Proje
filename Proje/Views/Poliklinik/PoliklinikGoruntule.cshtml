@@ -21,13 +21,14 @@
             width: 100%;
             border: 1px solid #ddd;
             font-family: Arial, sans-serif;
+            font-weight: bold;
         }
 
         th, td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: center;
-            font-size: 16px; /* Increase font size (from the default) */
+            font-size: 18px; /* Increase font size (from the default) */
         }
 
         th {
@@ -43,29 +44,33 @@
         }
     </style>
 </head>
-<body>
 
+<body>
     <div class="table-container">
-        @model List<Proje.Models.Doktor>
+        @model List<Uzmanlik>
+
+        <h1>Poliklinik Listesi</h1>
 
         <table class="table">
-            <thead>
-                <tr>
-                    <th>Doktor Adı</th>
-                    <th>Uzmanlık Alanı</th>
-                </tr>
-            </thead>
             <tbody>
-                @foreach (var doktor in Model)
+                @foreach (var uzmanlik in Model)
                 {
                     <tr>
-                        <td style="font-size: 16px;">@doktor.DoktorAdi</td>
-                        <td style="font-size: 16px;">@(doktor.Uzmanlik != null ? doktor.Uzmanlik.UzmanlikAdi : "Belirtilmemiş")</td>
+                        <td style="font-size: 18x;">@uzmanlik.UzmanlikAdi</td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 </body>
+
 </html>
